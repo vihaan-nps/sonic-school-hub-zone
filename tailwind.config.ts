@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				sonic: {
+					blue: '#0066FF',
+					darkblue: '#003DC7',
+					lightblue: '#66B3FF',
+					electric: '#00BFFF',
+					gold: '#FFD700',
+					red: '#FF0000'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'spin-fast': {
+					from: { transform: 'rotate(0deg)' },
+					to: { transform: 'rotate(360deg)' }
+				},
+				'bounce-sonic': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'speed-dash': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100vw)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'spin-fast': 'spin-fast 0.5s linear infinite',
+				'bounce-sonic': 'bounce-sonic 1s ease-in-out infinite',
+				'speed-dash': 'speed-dash 2s linear infinite'
 			}
 		}
 	},
