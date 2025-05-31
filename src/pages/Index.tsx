@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { ChatTab } from '@/components/tabs/ChatTab';
@@ -170,24 +169,24 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
             <div className="relative rounded-lg overflow-hidden tab-hover">
               <img 
                 src="/lovable-uploads/352d3d18-907f-4170-a845-467b6f391dd7.png" 
-                alt="Sonic artwork" 
+                alt="Sonic in the Starfall Islands" 
                 className="w-full h-64 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <p className="font-semibold">Sonic in the Night</p>
+                <p className="font-semibold">Sonic in the Starfall Islands</p>
                 <p className="text-sm opacity-90">By Community Artist</p>
               </div>
             </div>
             <div className="relative rounded-lg overflow-hidden tab-hover">
               <img 
                 src="/lovable-uploads/3026bfc7-5721-4fdb-9a57-1cc82126a173.png" 
-                alt="Robotnik artwork" 
+                alt="The Biolizard" 
                 className="w-full h-64 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <p className="font-semibold">Dr. Robotnik's Machine</p>
+                <p className="font-semibold">The Biolizard</p>
                 <p className="text-sm opacity-90">By Community Artist</p>
               </div>
             </div>
