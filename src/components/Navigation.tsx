@@ -10,6 +10,7 @@ interface NavigationProps {
 
 export const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
   const tabs = [
+    { id: 'home', label: 'Home', icon: '🏠' },
     { id: 'chat', label: 'Chat', icon: '💬' },
     { id: 'games', label: 'Games', icon: '🎮' },
     { id: 'art', label: 'Art', icon: '🎨' },
