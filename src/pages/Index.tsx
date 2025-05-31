@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { ChatTab } from '@/components/tabs/ChatTab';
@@ -40,10 +41,10 @@ const Index = () => {
         <div className="text-center mb-8">
           <h1 className="text-6xl font-bold mb-4">
             <span className="sonic-text-gradient">SONIC</span>
-            <span className="text-sonic-gold"> ZONE</span>
+            <span className="text-sonic-gold"> CENTRAL</span>
           </h1>
           <p className="text-xl text-gray-600 mb-4">
-            Gotta go fast with your school friends! 💨
+            Gotta go fast! 💨
           </p>
           <div className="flex justify-center items-center gap-4 mb-6">
             <div className="speed-ring w-8 h-8 bg-sonic-gold"></div>
@@ -88,7 +89,7 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
             />
           </div>
           <div className="relative z-10">
-            <h2 className="text-5xl font-bold mb-6">Welcome to the Sonic Zone!</h2>
+            <h2 className="text-5xl font-bold mb-6">Welcome to Sonic Central!</h2>
             <p className="text-xl mb-8 opacity-90">
               The ultimate hangout spot for Sonic fans and school friends. 
               Chat, play games, share art, and explore together!
