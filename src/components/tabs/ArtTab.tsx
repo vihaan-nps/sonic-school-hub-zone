@@ -47,6 +47,37 @@ export const ArtTab = () => {
         </Button>
       </div>
 
+      {/* Featured Artworks Section */}
+      <div className="mb-8">
+        <h3 className="text-xl font-bold mb-4 text-sonic-blue">🌟 Featured Community Art</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="relative rounded-lg overflow-hidden tab-hover">
+            <img 
+              src="/lovable-uploads/2a060b83-1e4c-4dd0-9075-4baa4ec03152.png" 
+              alt="Metal Sonic City Adventure" 
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <p className="font-semibold">Metal Sonic City Adventure</p>
+              <p className="text-sm opacity-90">By TechnoFan</p>
+            </div>
+          </div>
+          <div className="relative rounded-lg overflow-hidden tab-hover">
+            <img 
+              src="/lovable-uploads/be51bf31-4442-4373-a08d-17757f828f13.png" 
+              alt="Eggman's Ultimate Machine" 
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <p className="font-semibold">Eggman's Ultimate Machine</p>
+              <p className="text-sm opacity-90">By RoboArtist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {artworks.map((art) => (
           <Card key={art.id} className="tab-hover border-sonic-blue/30 hover:border-sonic-blue">

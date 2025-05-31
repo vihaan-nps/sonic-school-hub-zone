@@ -47,6 +47,25 @@ export const AnimationsTab = () => {
         </Button>
       </div>
 
+      {/* Featured Animation Banner */}
+      <Card className="mb-8 overflow-hidden">
+        <div className="relative h-64 bg-gradient-to-r from-sonic-blue to-sonic-electric">
+          <img 
+            src="/lovable-uploads/269c1ece-59ec-4437-b1fa-7f46b2105237.png" 
+            alt="Sonic Adventure Scene" 
+            className="w-full h-full object-cover opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-2xl font-bold mb-2">🎬 Adventure Animation Series</h3>
+            <p className="text-lg opacity-90 mb-4">Epic animated sequences from Sonic's greatest adventures!</p>
+            <Button className="bg-sonic-gold text-sonic-darkblue hover:bg-yellow-500">
+              Watch Now! 🎥
+            </Button>
+          </div>
+        </div>
+      </Card>
+
       {/* Demo Animations Section */}
       <div className="mb-8">
         <h3 className="text-xl font-bold mb-4 text-sonic-blue">🎪 Live Demos</h3>
