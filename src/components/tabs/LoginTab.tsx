@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -89,6 +88,16 @@ export const LoginTab = () => {
           <CardDescription>Log in to access all Sonic features</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          {/* Sonic adventure image */}
+          <div className="relative rounded-lg overflow-hidden mb-4">
+            <img 
+              src="/lovable-uploads/6eb2cf14-34fc-4934-971c-b6830a959eef.png" 
+              alt="Sonic adventure scene" 
+              className="w-full h-32 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
             <Input
