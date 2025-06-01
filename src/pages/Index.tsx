@@ -28,7 +28,7 @@ const Index = () => {
       case 'animations':
         return <AnimationsTab />;
       case 'login':
-        return <LoginTab />;
+        return <LoginTab setActiveTab={setActiveTab} />;
       default:
         return <HomePage setActiveTab={setActiveTab} />;
     }
@@ -114,7 +114,7 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
 
       {/* Featured Games Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card className="tab-hover overflow-hidden">
+        <Card className="tab-hover overflow-hidden cursor-pointer" onClick={() => setActiveTab('games')}>
           <div className="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative">
             <img 
               src="/lovable-uploads/48693bec-7099-4740-bbb0-8937878906a3.png" 
@@ -129,7 +129,7 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
           </div>
         </Card>
 
-        <Card className="tab-hover overflow-hidden">
+        <Card className="tab-hover overflow-hidden cursor-pointer" onClick={() => setActiveTab('games')}>
           <div className="h-48 bg-gradient-to-br from-blue-600 to-cyan-600 relative">
             <img 
               src="/lovable-uploads/708e8066-0127-4725-8906-7e4433204d33.png" 
@@ -144,7 +144,7 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
           </div>
         </Card>
 
-        <Card className="tab-hover overflow-hidden">
+        <Card className="tab-hover overflow-hidden cursor-pointer" onClick={() => setActiveTab('games')}>
           <div className="h-48 bg-gradient-to-br from-green-600 to-blue-600 relative">
             <img 
               src="/lovable-uploads/eab89be5-62e4-4e5f-8d19-29c6d5969c39.png" 
@@ -167,7 +167,10 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
             🎨 Community Art Gallery
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="relative rounded-lg overflow-hidden tab-hover">
+            <div 
+              className="relative rounded-lg overflow-hidden tab-hover cursor-pointer"
+              onClick={() => setActiveTab('art')}
+            >
               <img 
                 src="/lovable-uploads/352d3d18-907f-4170-a845-467b6f391dd7.png" 
                 alt="Sonic in the Starfall Islands" 
@@ -179,7 +182,10 @@ const HomePage = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => 
                 <p className="text-sm opacity-90">By Community Artist</p>
               </div>
             </div>
-            <div className="relative rounded-lg overflow-hidden tab-hover">
+            <div 
+              className="relative rounded-lg overflow-hidden tab-hover cursor-pointer"
+              onClick={() => setActiveTab('art')}
+            >
               <img 
                 src="/lovable-uploads/3026bfc7-5721-4fdb-9a57-1cc82126a173.png" 
                 alt="The Biolizard" 
