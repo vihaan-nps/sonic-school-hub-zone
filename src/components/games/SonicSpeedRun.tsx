@@ -2,13 +2,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { saveScore, getHighScores } from '@/utils/gameUtils';
-
+import { saveScore, getHighScores, checkCollision } from '@/utils/gameUtils';
+import sonicSprite from '@/assets/sonic-run.png';
+import spikeSprite from '@/assets/spike.png';
 export const SonicSpeedRun = () => {
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'gameOver'>('menu');
   const [score, setScore] = useState(0);
   const [sonicY, setSonicY] = useState(300);
-  const [obstacles, setObstacles] = useState<Array<{ x: number; y: number; id: number }>>([]);
+  const [obstacles, setObstacles] = useState<Array<{ x: number; y: number; id: number; width: number; height: number; type: 'spike' }>>([]);
   const [isJumping, setIsJumping] = useState(false);
   const gameLoopRef = useRef<number>();
   const obstacleIdRef = useRef(0);
@@ -49,37 +50,36 @@ export const SonicSpeedRun = () => {
     if (gameState === 'playing') {
       gameLoopRef.current = window.setInterval(() => {
         setScore(prev => prev + 10);
-        
-        // Move obstacles
+
         setObstacles(prev => {
           const updated = prev
             .map(obs => ({ ...obs, x: obs.x - 5 }))
             .filter(obs => obs.x > -50);
-          
+
           // Add new obstacle randomly
-          if (Math.random() < 0.02) {
+          if (Math.random() < 0.03) {
             updated.push({
               x: 800,
               y: 320,
-              id: obstacleIdRef.current++
+              id: obstacleIdRef.current++,
+              width: 48,
+              height: 48,
+              type: 'spike'
             });
           }
-          
-          return updated;
-        });
 
-        // Check collisions
-        setObstacles(prev => {
-          const collision = prev.some(obs => 
-            obs.x < 100 && obs.x > 20 && sonicY > 280
+          // Collision detection using bounding boxes
+          const sonicRect = { x: 50, y: sonicY, width: 64, height: 64 };
+          const collided = updated.some(obs =>
+            checkCollision(sonicRect, { x: obs.x, y: obs.y, width: obs.width, height: obs.height })
           );
-          
-          if (collision) {
+
+          if (collided) {
             setGameState('gameOver');
             saveScore('speedrun', score);
           }
-          
-          return prev;
+
+          return updated;
         });
       }, 50);
     }
@@ -160,19 +160,23 @@ export const SonicSpeedRun = () => {
           onClick={jump}
         >
           {/* Sonic */}
-          <div 
-            className={`absolute w-16 h-16 bg-sonic-blue rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ${isJumping ? 'animate-bounce' : ''}`}
+          <img
+            src={sonicSprite}
+            alt="Sonic running sprite"
+            className={`absolute w-16 h-16 select-none pointer-events-none transition-all duration-300 ${isJumping ? 'animate-bounce' : 'pulse'}`}
             style={{ left: '50px', top: `${sonicY}px` }}
-          >
-            🦔
-          </div>
+            loading="eager"
+          />
           
           {/* Obstacles */}
           {obstacles.map(obstacle => (
-            <div
+            <img
               key={obstacle.id}
-              className="absolute w-8 h-16 bg-red-600 rounded"
-              style={{ left: `${obstacle.x}px`, top: `${obstacle.y}px` }}
+              src={spikeSprite}
+              alt="Spike obstacle"
+              className="absolute select-none pointer-events-none"
+              style={{ left: `${obstacle.x}px`, top: `${obstacle.y}px`, width: `${obstacle.width}px`, height: `${obstacle.height}px` }}
+              loading="lazy"
             />
           ))}
           
