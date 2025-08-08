@@ -47,7 +47,7 @@ export const SonicSpeedRun = () => {
 
   useEffect(() => {
     if (gameState === 'playing') {
-      gameLoopRef.current = setInterval(() => {
+      gameLoopRef.current = window.setInterval(() => {
         setScore(prev => prev + 10);
         
         // Move obstacles
